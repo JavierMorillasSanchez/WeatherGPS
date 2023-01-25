@@ -2,10 +2,13 @@ package com.example.weathergps.data.localstorage;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -52,6 +55,42 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         return database.insert(QUERY_TABLE, null, contentValues) != -1;
 
+    }
+
+    public ArrayList<QueryModel> getAllQueries(){
+
+        ArrayList<QueryModel> allQueries = new ArrayList<>();
+
+        String queryString = "SELECT * FROM "+QUERY_TABLE;
+
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        Cursor cursor = database.rawQuery(queryString, null);
+
+        if(cursor.moveToFirst()){
+
+            do{
+                int queryId = cursor.getInt(0);
+                String queryLatitude = cursor.getString(1);
+                String queryLongitude = cursor.getString(2);
+                String queryAvgTemp = cursor.getString(3);
+
+                QueryModel queryModel = new QueryModel(
+                        queryId,
+                        queryLatitude,
+                        queryLongitude,
+                        queryAvgTemp
+                );
+                allQueries.add(queryModel);
+
+            } while (cursor.moveToNext());
+
+        }
+
+        cursor.close();
+        database.close();
+
+        return allQueries;
     }
 
 }

@@ -79,6 +79,13 @@ public class WeatherDetailActivity extends AppCompatActivity implements IWeather
             }
         });
 
+        btnAllQueries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewModel.navigateToAllQueries(getApplicationContext());
+            }
+        });
+
         this.gpsCoordinatesIn = (GpsCoordinatesIn) getIntent().getSerializableExtra("gpsCoordinates");
 
         this.mapFragment = (SupportMapFragment) getSupportFragmentManager()

@@ -1,6 +1,8 @@
 package com.example.weathergps.data.localstorage;
 
-public class QueryModel {
+import java.io.Serializable;
+
+public class QueryModel implements Serializable {
 
     private int id;
     private String latitude;

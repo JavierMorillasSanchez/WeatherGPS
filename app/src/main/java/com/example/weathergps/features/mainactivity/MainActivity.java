@@ -20,7 +20,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity implements IMainActivity {
 
     private EditText txtLatitude, txtLongitude;
-    private Button btnCheckWeater;
+    private Button btnCheckWeater, btnAllQueries;
     private TextView txtLastSearches;
     private GpsCoordinatesIn gpsCoordinatesIn;
     private String apiKey, startDate, endDate, latitude, longitude;
@@ -40,15 +40,25 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
         txtLatitude = findViewById(R.id.etxt_latitude);
         txtLongitude = findViewById(R.id.etxt_longitude);
+        txtLastSearches = findViewById(R.id.txt_last_searches);
 
         btnCheckWeater = findViewById(R.id.btn_check_weather);
-        txtLastSearches = findViewById(R.id.txt_last_searches);
+        btnAllQueries = findViewById(R.id.btn_all_queries);
+
+
         this.viewModel = new MainActivityViewModel();
 
         btnCheckWeater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigateToWeatherDetail();
+            }
+        });
+
+        btnAllQueries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewModel.navigateToAllQueries(getApplicationContext());
             }
         });
 

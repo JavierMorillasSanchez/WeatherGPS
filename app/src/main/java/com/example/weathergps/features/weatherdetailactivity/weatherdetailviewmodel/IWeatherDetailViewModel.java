@@ -6,4 +6,5 @@ import com.example.weathergps.data.localstorage.QueryModel;
 
 public interface IWeatherDetailViewModel {
     void saveQuery(Context context, QueryModel query);
+    void navigateToAllQueries(Context context);
 }

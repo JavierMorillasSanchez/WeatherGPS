@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.weathergps.data.gpsCoordinates.GpsCoordinatesIn;
+import com.example.weathergps.data.localstorage.QueryModel;
+import com.example.weathergps.features.querylistactivity.QueryListActivity;
 import com.example.weathergps.features.weatherdetailactivity.WeatherDetailActivity;
 
 public class MainActivityViewModel implements IMainActivityViewModel{
@@ -13,4 +15,11 @@ public class MainActivityViewModel implements IMainActivityViewModel{
         intent.putExtra("gpsCoordinates", gpsCoordinatesIn);
         context.startActivity(intent);
     }
+
+    @Override
+    public void navigateToAllQueries(Context context){
+        Intent navigateToUserDetail = new Intent(context, QueryListActivity.class);
+        context.startActivity(navigateToUserDetail);
+    }
+
 }
