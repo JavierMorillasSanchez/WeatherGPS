@@ -49,4 +49,11 @@
         android:layout_height="wrap_content"
         android:text="@string/last_searches"
         android:layout_margin="5dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="3"
+        tools:listitem="@layout/query_item_cell"/>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -11,7 +11,7 @@
     <string name="txt_max_temp">Temperatura máxima:</string>
     <string name="txt_avg_temp">Temperatura media:</string>
     <string name="you_are_here">Estás aquí.</string>
-
+    <string name="query_activity_title">Todas tus búsquedas:</string>
 
     //Buttons
     <string name="btn_check_weather">Muéstrame el clima</string>
