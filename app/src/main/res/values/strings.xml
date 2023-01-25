@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">WeatherGPS</string>
+
+    //Texts
+    <string name="last_searches">Últimas búsquedas</string>
+    <string name="txt_latitude">Latitud</string>
+    <string name="txt_longitude">Longitud</string>
+    <string name="toast_message_no_dates">Por favor, rellena los dos campos latitud y longitud.</string>
+    <string name="txt_not_available">No disponible</string>
+    <string name="txt_min_temp">Temperatura mínima:</string>
+    <string name="txt_max_temp">Temperatura máxima:</string>
+    <string name="txt_avg_temp">Temperatura media:</string>
+    <string name="you_are_here">Estás aquí.</string>
+
+
+    //Buttons
+    <string name="btn_check_weather">Muéstrame el clima</string>
+    <string name="btn_new_query">Hacer otra búsqueda</string>
+    <string name="btn_save_query">Guardar búsqueda</string>
+    <string name="btn_show_query">Todas las búsquedas</string>
+
+
+</resources>

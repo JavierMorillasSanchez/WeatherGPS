@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".features.weatherdetailactivity.WeatherDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/txt_max_temp_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_max_temp"
+                android:textSize="15sp"
+                android:layout_weight="0"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:id="@+id/txt_max_temp_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_not_available"
+                android:textSize="15sp"
+                android:layout_weight="2"
+                android:textAlignment="center"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/txt_min_temp_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_min_temp"
+                android:textSize="15sp"
+                android:layout_weight="0"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:id="@+id/txt_min_temp_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_not_available"
+                android:textSize="15sp"
+                android:layout_weight="2"
+                android:textAlignment="center"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/txt_avg_temp_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_avg_temp"
+                android:textSize="15sp"
+                android:layout_weight="0"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:id="@+id/txt_avg_temp_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_not_available"
+                android:textSize="15sp"
+                android:layout_weight="2"
+                android:textAlignment="center"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/txt_latitude_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_latitude"
+                android:textSize="15sp"
+                android:layout_weight="0"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:id="@+id/txt_latitude_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_not_available"
+                android:textSize="15sp"
+                android:layout_weight="2"
+                android:textAlignment="center"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/txt_longitude_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_longitude"
+                android:textSize="15sp"
+                android:layout_weight="0"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:id="@+id/txt_longitude_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_not_available"
+                android:textSize="15sp"
+                android:layout_weight="2"
+                android:textAlignment="center"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/mapView"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        tools:context=".features.weatherdetailactivity.WeatherDetailActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+    <Button
+        android:id="@+id/btn_new_query_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_new_query"
+        android:layout_margin="5dp"/>
+
+    <Button
+        android:id="@+id/btn_save_query_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_save_query"
+        android:layout_margin="5dp"/>
+
+    <Button
+        android:id="@+id/btn_check_queries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_show_query"
+        android:layout_margin="5dp"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
