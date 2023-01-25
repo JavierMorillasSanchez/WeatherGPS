@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.weathergps.R;
 import com.example.weathergps.data.gpsCoordinates.GpsCoordinatesIn;
 import com.example.weathergps.data.gpsCoordinates.GpsCoordinatesOut;
+import com.example.weathergps.data.localstorage.QueryModel;
 import com.example.weathergps.data.weatherapicall.WeatherApiCall;
 import com.example.weathergps.features.weatherdetailactivity.weatherdetailviewmodel.WeatherDetailViewModel;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,6 +24,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class WeatherDetailActivity extends AppCompatActivity implements IWeatherDetailActivity, OnMapReadyCallback {
 
     private WeatherDetailViewModel viewModel;
+    private QueryModel query;
     private WeatherApiCall weatherApiCall;
     private TextView txtMaxTemp,txtMinTemp,txtAvgTemp, txtLatitude, txtLongitude;
     Button btnNewQuery, btnSaveQuery, btnAllQueries;
@@ -44,6 +46,7 @@ public class WeatherDetailActivity extends AppCompatActivity implements IWeather
     @Override
     public void setUIref(){
         this.viewModel = new WeatherDetailViewModel();
+        this.viewModel = new WeatherDetailViewModel();
         this.txtMaxTemp = findViewById(R.id.txt_max_temp_detail);
         this.txtMinTemp = findViewById(R.id.txt_min_temp_detail);
         this.txtAvgTemp = findViewById(R.id.txt_avg_temp_detail);
@@ -58,6 +61,21 @@ public class WeatherDetailActivity extends AppCompatActivity implements IWeather
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        this.btnSaveQuery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                query = new QueryModel(
+                        -1,
+                        gpsCoordinatesIn.getLatitude(),
+                        gpsCoordinatesIn.getLongitude(),
+                        String.valueOf(txtAvgTemp.getText())
+                );
+
+                viewModel.saveQuery(getApplicationContext(), query);
             }
         });
 
