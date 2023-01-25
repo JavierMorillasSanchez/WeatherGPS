@@ -1,7 +1,9 @@
 package com.example.weathergps.utils.apiutils;
 
+import com.example.weathergps.BuildConfig;
+
 public class ApiUtils implements IApiUtils {
-    public String apiKey = "0095761de94541eea1f5f0e8bcc6843b";
+    public String apiKey = BuildConfig.WEATHER_API_KEY;
 
     @Override
     public String getApiKey() {

@@ -3,6 +3,7 @@ package com.example.weathergps.features.mainactivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.DigitsKeyListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
         txtLatitude = findViewById(R.id.etxt_latitude);
         txtLongitude = findViewById(R.id.etxt_longitude);
+
         btnCheckWeater = findViewById(R.id.btn_check_weather);
         txtLastSearches = findViewById(R.id.txt_last_searches);
         this.viewModel = new MainActivityViewModel();
