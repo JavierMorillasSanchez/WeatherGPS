@@ -4,6 +4,6 @@ import com.example.weathergps.data.gpsCoordinates.GpsCoordinatesIn;
 
 public interface IMainActivity {
     void setUIref();
+    void setLastQueries();
     GpsCoordinatesIn gpsRequest();
-    void navigateToWeatherDetail();
 }

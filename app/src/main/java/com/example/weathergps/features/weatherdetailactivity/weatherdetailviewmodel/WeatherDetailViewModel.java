@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.weathergps.R;
 import com.example.weathergps.data.localstorage.DataBaseHelper;
 import com.example.weathergps.data.localstorage.QueryModel;
 import com.example.weathergps.features.querylistactivity.QueryListActivity;
@@ -20,6 +21,7 @@ public class WeatherDetailViewModel implements IWeatherDetailViewModel{
     public void saveQuery(Context context, QueryModel query) {
         dataBaseHelper = new DataBaseHelper(context,QUERY_TABLE,null,1);
         dataBaseHelper.saveQuery(query);
+        Toast.makeText(context, R.string.saved_query, Toast.LENGTH_SHORT).show();
     }
 
     @Override

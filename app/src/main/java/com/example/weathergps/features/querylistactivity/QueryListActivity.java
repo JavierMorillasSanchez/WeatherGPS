@@ -36,6 +36,7 @@ public class QueryListActivity extends AppCompatActivity implements IQueryListAc
         this.rvAllQueries = (RecyclerView) findViewById(R.id.rv_all_queries);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(QueryListActivity.this, RecyclerView.VERTICAL, false);
         rvAllQueries.setLayoutManager(linearLayoutManager);
+
     }
 
     @Override
@@ -48,8 +49,5 @@ public class QueryListActivity extends AppCompatActivity implements IQueryListAc
         rvAllQueries.setAdapter(this.queriesAdapter);
 
     }
-
-
-
 
 }

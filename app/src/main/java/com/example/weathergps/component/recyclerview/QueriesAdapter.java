@@ -10,18 +10,22 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.weathergps.BuildConfig;
 import com.example.weathergps.R;
 import com.example.weathergps.component.listitemcell.QueryViewHolder;
-import com.example.weathergps.data.gpsCoordinates.GpsCoordinatesOut;
+import com.example.weathergps.data.gpsCoordinates.GpsCoordinatesIn;
 import com.example.weathergps.data.localstorage.QueryModel;
 import com.example.weathergps.features.weatherdetailactivity.WeatherDetailActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class QueriesAdapter extends RecyclerView.Adapter<QueryViewHolder> implements IQueriesAdapter {
 
     private Context context;
     private ArrayList<QueryModel> queryModel = new ArrayList<>();
+    GpsCoordinatesIn coordinates;
 
     public QueriesAdapter(Context context, ArrayList<QueryModel> queryModel){
         this.context = context;
@@ -47,7 +51,16 @@ public class QueriesAdapter extends RecyclerView.Adapter<QueryViewHolder> implem
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToWeatherDetail(query);
+
+                coordinates = new GpsCoordinatesIn(
+                        BuildConfig.WEATHER_API_KEY,
+                        query.getLatitude(),
+                        query.getLongitude(),
+                        new SimpleDateFormat("yyyy-MM-dd").format(new Date()),
+                        new SimpleDateFormat("yyyy-MM-dd").format(new Date())
+                );
+
+                navigateToWeatherDetail(coordinates);
             }
         });
 
@@ -58,18 +71,12 @@ public class QueriesAdapter extends RecyclerView.Adapter<QueryViewHolder> implem
         return queryModel.size();
     }
 
-    public void updateData(ArrayList<GpsCoordinatesOut> userList) {
-        if (userList.size() > 0) {
-            notifyDataSetChanged();
-        }
-    }
-
     @Override
-    public void navigateToWeatherDetail(QueryModel query){
+    public void navigateToWeatherDetail(GpsCoordinatesIn coordinates){
         Intent navigateToUserDetail = new Intent(context, WeatherDetailActivity.class);
-        navigateToUserDetail.putExtra("query",query);
+        navigateToUserDetail.putExtra("gpsCoordinates",coordinates);
         navigateToUserDetail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(navigateToUserDetail);
+        this.context.startActivity(navigateToUserDetail);
     }
 
 }
