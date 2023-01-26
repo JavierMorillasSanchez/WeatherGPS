@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.example.weathergps.R;
 import com.example.weathergps.data.localstorage.DataBaseHelper;
 import com.example.weathergps.data.localstorage.QueryModel;
+import com.example.weathergps.features.mainactivity.MainActivity;
 import com.example.weathergps.features.querylistactivity.QueryListActivity;
 
 import java.util.ArrayList;
@@ -27,12 +28,16 @@ public class WeatherDetailViewModel implements IWeatherDetailViewModel{
     @Override
     public void navigateToAllQueries(Context context) {
         Intent intent = new Intent(context, QueryListActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
-    /*
-    dataBaseHelper = new DataBaseHelper(context,QUERY_TABLE,null,1);
-        ArrayList<QueryModel> everyone = dataBaseHelper.getAllQueries();
-     */
+    @Override
+    public void navigateToNewQuery(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
 
 }

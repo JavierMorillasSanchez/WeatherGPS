@@ -13,12 +13,14 @@ public class MainActivityViewModel implements IMainActivityViewModel{
     public void navigateToWeatherDetail(Context context, GpsCoordinatesIn gpsCoordinatesIn) {
         Intent intent = new Intent(context, WeatherDetailActivity.class);
         intent.putExtra("gpsCoordinates", gpsCoordinatesIn);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
     @Override
     public void navigateToAllQueries(Context context){
         Intent navigateToUserDetail = new Intent(context, QueryListActivity.class);
+        navigateToUserDetail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(navigateToUserDetail);
     }
 

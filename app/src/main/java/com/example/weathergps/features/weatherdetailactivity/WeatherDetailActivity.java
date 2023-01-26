@@ -60,6 +60,7 @@ public class WeatherDetailActivity extends AppCompatActivity implements IWeather
         this.btnNewQuery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                viewModel.navigateToNewQuery(getApplicationContext());
                 finish();
             }
         });
