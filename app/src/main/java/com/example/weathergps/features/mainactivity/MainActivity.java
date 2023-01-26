@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
         setUIref();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setLastQueries();
+    }
 
     @Override
     public void setUIref(){
@@ -83,9 +88,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
                 viewModel.navigateToAllQueries(getApplicationContext());
             }
         });
-
-        setLastQueries();
-
     }
 
     @Override
@@ -96,9 +98,16 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
         lastQueries = new ArrayList<>();
 
-        lastQueries.add(everyQuery.get(everyQuery.size()-1));
-        lastQueries.add(everyQuery.get(everyQuery.size()-2));
-        lastQueries.add(everyQuery.get(everyQuery.size()-3));
+        if(everyQuery != null && everyQuery.size() > 0){
+            lastQueries.add(everyQuery.get(everyQuery.size()-1));
+            if(everyQuery.size() > 1){
+                lastQueries.add(everyQuery.get(everyQuery.size()-2));
+                if(everyQuery.size() > 2){
+                    lastQueries.add(everyQuery.get(everyQuery.size()-3));
+                }
+            }
+        }
+
 
         this.queriesAdapter = new QueriesAdapter(getApplicationContext(), this.lastQueries);
         rvLastQueries.setAdapter(this.queriesAdapter);
